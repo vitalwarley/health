@@ -21,7 +21,8 @@ if __name__ == "__main__":
     df =  df[df.Date > '2021-09-01']
     df = df[["Date", "Exercise Name", "Weight", "Reps"]].dropna(axis=0)
     default_exercise = "Deadlift (Barbell)"
-    exercises = list(df['Exercise Name'].unique())[2:-1]
+    exercises = list(df['Exercise Name'].unique())
+    exercises.sort()
 
     fig = go.Figure()
     exercise_plot_names = []
@@ -89,4 +90,5 @@ if __name__ == "__main__":
             }
         ],
     )
+    # Write fig as html to deploy
     fig.write_html("index.html")
