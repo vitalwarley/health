@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     df = pd.read_csv("strong.csv", delimiter=";")
     df['Date'] = pd.to_datetime(df.Date, errors='coerce')
-    df =  df[df.Date > '2021-09-01']
+    df =  df[df.Date > '2022-04-03']
     df = df[["Date", "Exercise Name", "Weight", "Reps"]].dropna(axis=0)
     default_exercise = "Deadlift (Barbell)"
     exercises = list(df['Exercise Name'].unique())
